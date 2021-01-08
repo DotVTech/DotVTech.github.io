@@ -1,0 +1,151 @@
+/* ===================================================
+  Base Styles
+  ================================================== */
+
+.header
+    position: fixed
+    padding: 2rem 0
+    width: 100%
+    z-index: 1
+    background-image: linear-gradient(180deg, $color-primary, rgba($color-primary, 0.63) 55%, transparent)
+    transition-property: transform, opacity, visibility
+    transition-timing-function: linear
+    transition-duration: 0.25s
+
+    &__logo-image
+        width: 2.5rem
+
+    &__list
+        counter-reset: link
+
+    &__link
+        text-transform: uppercase
+        color: $color-secondary
+        letter-spacing: 0.13rem
+        transition: color 0.25s $cubic-bezier
+
+    &__link::before
+        counter-increment: link
+        content: counter(link, decimal-leading-zero) '. '
+        color: $color-accent
+
+    &__link:hover
+        color: $color-accent
+
+
+
+// Class "hidden" is added to class "header" via JavaScript
+.header.hidden
+    transform: translateY(-30%)
+    opacity: 0
+    visibility: hidden
+
+
+
+/* ===================================================
+ Mobile Styles
+ ================================================== */
+
+@media screen and (max-width: 400px)
+    .header
+        &__nav
+            width: 75vw
+
+
+
+@media screen and (min-width: 401px) and (max-width: 650px)
+    .header
+        &__nav
+            width: 80vw
+
+
+
+@media screen and (max-width: 650px)
+    // Margins
+    .header
+        &__item:not(:first-child)
+            margin-top: 1.3rem
+
+
+
+    // Header
+    .header
+        &::after
+            content: ""
+            position: fixed
+            top: 0
+            right: 0
+            opacity: 0
+            transform: scale(0)
+            transition: opacity 0.5s
+            width: 100vw
+            height: 100vh
+            background-color: rgba($color-primary, 0.8)
+
+        &__container
+            justify-content: space-between
+            align-items: center
+            display: flex
+
+        &__logo
+            z-index: 1
+
+        &__nav
+            position: fixed
+            top: 0
+            left: 0
+            flex-direction: column
+            justify-content: center
+            display: flex
+            transform: translateX(-100%)
+            transition: transform 0.5s
+            height: 100vh
+            padding-left: 1.5rem
+            background-color: $color-primary
+
+        &__menu-toggle
+            cursor: pointer
+            text-transform: uppercase
+            color: $color-secondary
+            @include letter-spacing(0.05rem)
+
+
+
+    // Class "active" is added to class "header" via JavaScript
+    .header.active
+        .header__nav
+            transform: translateX(0%)
+
+        &::before
+            opacity: 1
+            transform: scale(1)
+
+
+
+/* ===================================================
+ Desktop Styles
+ ================================================== */
+
+@media screen and (min-width: 651px)
+    // Margins
+    .header
+        &__item:not(:first-child)
+            margin-left: 2rem
+
+
+
+    // Header
+    .header
+        &__container,
+        &__list
+            display: flex
+
+        &__container
+            justify-content: space-between
+            align-items: center
+
+        &__link
+            font-size: 0.91rem
+
+        &__menu-toggle
+            display: none

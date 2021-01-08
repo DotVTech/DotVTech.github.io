@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Viet Dang</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="dist/images/favicon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="dist/css/reset.min.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <!-- Add class data-gsap on this <div> and not the <header> because the <header> already has a transition. Thus it will interfere with GSAP's transition." -->
+        <div class="container header__container" data-gsap="header">
+            <a class="header__logo" href="#">
+                <img class="header__logo-image" src="dist/images/logo-light.png" alt="">
+            </a>
+            <nav class="header__nav">
+                <ul class="header__list" id="header-list">
+                    <li class="header__item">
+                        <a class="header__link" href="#about">About Me</a>
+                    </li>
+                    <li class="header__item">
+                        <a class="header__link" href="#work">My Work</a>
+                    </li>
+                    <li class="header__item">
+                        <a class="header__link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <span class="header__menu-toggle" id="menu-toggle">Menu</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <h1 class="hero__title">
+            <span data-gsap="first-name">Viet</span>
+            <span data-gsap="last-name">Dang</span>
+        </h1>
+        <div class="hero__curtain" id="curtain"></div>
+    </section>
+
+    <!-- About -->
+    <div class="about section" id="about">
+        <div class="container about__container" data-gsap="about">
+            <div class="about__text-group">
+                <div class="about__body">
+                    <p class="paragraph about__paragraph">My name is Viet Dang. I am a passionate front-end engineer specializing in building websites and applications.</p>
+                    <p class="paragraph about__paragraph">
+                        <span class="about__paragraph--emphasis">I believe</span>
+                        in building products that are beautiful, fast, and easy to use.
+                        <span class="about__paragraph--emphasis">My goal</span>
+                        is to bring the the best digital products and support to businesses and consumers.
+                    </p>
+                    <p class="paragraph about__paragraph">Here are a few technologies I've been working with recently:</p>
+                </div>
+                <div class="about__skills">
+                    <ul class="about__skill-group">
+                        <li class="about__skill">HTML</li>
+                        <li class="about__skill">CSS & Sass</li>
+                    </ul>
+                    <ul class="about__skill-group">
+                        <li class="about__skill">JavaScript</li>
+                        <li class="about__skill">Node.js</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about__headshot">
+                <div class="about__aspect-ratio">
+                    <img class="about__headshot-image" src="dist/images/headshot.jpg" alt="headshot image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work -->
+    <section class="work section" id="work">
+        <!-- Project 01 -->
+        <div class="work__project" data-gsap="project">
+            <div class="work__preview">
+                <img class="work__preview-image" src="dist/images/the-stars-preview.jpg" alt="">
+                <div class="container work__container-marquee">
+                    <div class="marquee marquee--work">
+                        <div class="marquee__item">
+                            <div class="marquee__text-field">Featured Project</div>
+                        </div>
+                        <div class="marquee__item">
+                            <div class="marquee__text-field">Featured Project</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container work__container-text-group">
+                <h1 class="work__title">The Stars</h1>
+                <h2 class="work__subtitle">Restaurant Website</h2>
+                <p class="paragraph work__paragraph">"The Stars" is a static website showcasing the menu, locations, and social media of a resaurant.</p>
+                <div class="work__links">
+                    <a class="work__link" href="https://vietdang.me/the-stars" target="_blank">View Website</a>
+                    <a class="work__link" href="https://github.com/DotVTech/the-stars" target="_blank">View GitHub</a>
+                </div>
+                <div class="work__languages">
+                    <span class="work__language">HTML5</span>
+                    <span class="work__language">CSS3</span>
+                    <span class="work__language">Sass</span>
+                    <span class="work__language">JavaScript</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project 02 -->
+        <div class="work__project" data-gsap="project">
+            <div class="work__preview">
+                <img class="work__preview-image" src="dist/images/devfolio-preview.png" alt="devfolio preview image">
+                <div class="container work__container-marquee">
+                    <div class="marquee marquee--work">
+                        <div class="marquee__item">
+                            <div class="marquee__text-field">Featured Project</div>
+                        </div>
+                        <div class="marquee__item">
+                            <div class="marquee__text-field">Featured Project</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container work__container-text-group">
+                <h1 class="work__title">Dev Folio</h1>
+                <h2 class="work__subtitle">Portfolio Website</h2>
+                <p class="paragraph work__paragraph">"Devfolio" is an open source portfolio I built for myself and the web
+                development community.</p>
+                <div class="work__links">
+                    <a class="work__link" href="https://vietdang.me" target="_blank">View Website</a>
+                    <a class="work__link" href="https://github.com/DotVTech/dotvtech.github.io" target="_blank">View GitHub</a>
+                </div>
+                <div class="work__languages">
+                    <span class="work__language">HTML5</span>
+                    <span class="work__language">CSS3</span>
+                    <span class="work__language">Sass</span>
+                    <span class="work__language">JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact section" id="contact" data-gsap="contact">
+        <div class="container contact__container-text-group">
+            <h2 class="contact__subtitle">What's Next?</h2>
+            <h1 class="contact__title">Get In Touch</h1>
+            <p class="paragraph contact__paragraph">My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+        </div>
+        <div class="contact__links">
+            <div class="marquee marquee--contact">
+                <div class="marquee__item">
+                    <div class="marquee__text-field">Say Hello Say Hello</div>
+                </div>
+                <div class="marquee__item">
+                    <div class="marquee__text-field">Say Hello Say Hello</div>
+                </div>
+            </div>
+            <a class="contact__email" href="mailto:VietADang@gmail.com">VietADang@gmail.com</a>
+            <ul class="container contact__container-socials">
+                <a class="contact__social" href="https://github.com/DotVTech" target="_blank">
+                    GitHub
+                    <svg class="contact__arrow" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M37.379 12.552a2 2 0 10-2.758 2.897L49.963 30H10a2 2 0 000 4h39.899L34.621 48.552a2 2 0 102.758 2.896l17.449-16.62C55.584 34.073 56 33.069 56 32s-.416-2.073-1.207-2.862z"/></svg>
+                </a>
+                <a class="contact__social" href="https://twitter.com/DotVTech" target="_blank">
+                    Twitter
+                    <svg class="contact__arrow" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M37.379 12.552a2 2 0 10-2.758 2.897L49.963 30H10a2 2 0 000 4h39.899L34.621 48.552a2 2 0 102.758 2.896l17.449-16.62C55.584 34.073 56 33.069 56 32s-.416-2.073-1.207-2.862z"/></svg>
+                </a>
+                <a class="contact__social" href="https://www.youtube.com/channel/UCi02JsSDQOYZHj6tMOkNM9Q" target="_blank">
+                    YouTube
+                    <svg class="contact__arrow" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M37.379 12.552a2 2 0 10-2.758 2.897L49.963 30H10a2 2 0 000 4h39.899L34.621 48.552a2 2 0 102.758 2.896l17.449-16.62C55.584 34.073 56 33.069 56 32s-.416-2.073-1.207-2.862z"/></svg>
+                </a>
+            </ul>
+        </div>
+    </section>
+
+    <script src="dist/js/jquery-3.5.1.min.js"></script>
+    <script src="dist/js/gsap.min.js"></script>
+    <script src="dist/js/CustomEase.min.js"></script>
+    <script src="dist/js/ScrollTrigger.min.js"></script>
+    <script src="dist/js/script.js"></script>
+</body>
+</html>

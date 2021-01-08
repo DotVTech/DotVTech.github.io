@@ -1,0 +1,117 @@
+/* ===================================================
+ Base Styles
+ ================================================== */
+
+// Margins
+.about
+    &__paragraph:not(:first-child),
+         margin-top: 0.9rem
+
+    &__skills
+         margin-top: 1.3rem
+
+    &__skill:not(:first-child)
+         margin-top: 0.625rem
+
+    &__skill::before
+         margin-right: 0.45rem
+
+    &__skill-group:not(:first-child)
+        margin-left: 3rem
+
+
+
+// About
+.about
+    margin-bottom: 1.25rem
+
+    &__paragraph--emphasis
+        color: $color-accent
+
+    &__skills
+        display: flex
+
+    &__skill::before
+        content: "▹"
+        color: $color-accent
+
+    &__skill
+        font-size: 0.8125rem
+
+    &__headshot
+        position: relative
+        width: 70%
+        max-width: 18.75rem
+
+    &__aspect-ratio
+        position: relative
+        padding-bottom: 100%
+
+    &__aspect-ratio::after,
+    &__aspect-ratio::before
+        transition-property: top, left, opacity
+        transition-timing-function: $cubic-bezier
+        transition-duration: 0.25s
+
+    // &__aspect-ratio::after
+    //     content: ""
+    //     @include filter
+
+    &__aspect-ratio::before
+        content: ""
+        position: absolute
+        z-index: -1
+        top: 1.25rem
+        left: 1.25rem
+        border: 0.125rem solid $color-accent
+        border-radius: 0.25rem
+        width: 100%
+        height: 100%
+
+    &__aspect-ratio:hover
+        &::before
+            top: 0.9375rem
+            left: 0.9375rem
+
+        // &::after
+        //     opacity: 0
+
+    &__headshot-image
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+
+
+/* ===================================================
+ Mobile Styles
+ ================================================== */
+
+@media screen and (max-width: 750px)
+    .about
+        &__headshot
+            margin-top: 3.78rem
+            @include margin-lr-auto
+
+
+@media screen and (max-width: 750px)
+    .about
+        .paragraph
+            max-width: none
+
+
+/* ===================================================
+ Desktop Styles
+ ================================================== */
+
+@media screen and (min-width: 751px)
+    .about
+        &__container
+            display: grid
+            grid-template-columns: 1.3fr 1fr
+
+        &__headshot
+            margin-left: auto

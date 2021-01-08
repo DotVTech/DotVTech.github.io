@@ -1,0 +1,68 @@
+/* =====================================
+ Mixins
+ ==================================== */
+
+@function str-replace($string, $search, $replace: "")
+	$index: str-index($string, $search)
+
+	@if $index
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+
+	@return $string
+
+
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
+	$src: null
+
+	$extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"))
+
+	$formats: (otf: "opentype", ttf: "truetype")
+
+	@each $ext in $exts
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma)
+
+	@font-face
+		font-family: quote($name)
+		font-style: $style
+		font-weight: $weight
+		src: $src
+
+
+
+/* =====================================
+ Fonts
+ ==================================== */
+
+// Calibre
+
+@include font-face(Calibre, "../fonts/Calibre/calibre-test-regular", 400, normal, woff)
+@include font-face(Calibre, "../fonts/Calibre/calibre-test-bold", 700, normal, woff)
+@include font-face(Calibre, "../fonts/Calibre/calibre-test-black", 900, normal, woff)
+
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-thin", 100, normal, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-light", 300, normal, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-medium", 500, normal, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-semibold", 600, normal, woff)
+
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-thin-italic", 100, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-light-italic", 300, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-regular-italic", 400, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-medium-italic", 500, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-semibold-italic", 600, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-bold-italic", 700, italic, woff)
+// @include font-face(Calibre, "../fonts/Calibre/calibre-test-black-italic", 900, italic, woff)
+
+
+
+// Goldman
+@include font-face(Goldman, "../fonts/Goldman/Goldman-Regular", 400, normal, ttf)
+// @include font-face(Goldman, "../fonts/Goldman/Goldman-Bold", 700, normal, ttf)
+
+
+
+// Play
+@include font-face(Play, "../fonts/Play/Play-Regular", 400, normal, ttf)
+@include font-face(Play, "../fonts/Play/Play-Bold", 700, normal, ttf)

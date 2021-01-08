@@ -1,0 +1,59 @@
+/* ===================================================
+ Font Primary
+ ================================================== */
+
+// 400, 700, 900
+
+html
+    $font-primary : 'Calibre', sans-serif
+    $fw-700       : 700
+    $fw-900       : 900
+
+    .paragraph,
+    .hero__title,
+    .work__title,
+    .contact__title,
+    .contact__email,
+    .header__link
+        font-family: $font-primary
+
+    .marquee--contact .marquee__text-field
+        font-weight: $fw-700
+
+    .hero__title,
+    .work__title,
+    .contact__title
+        font-weight: $fw-900
+
+
+
+/* ===================================================
+ Font Secondary
+ ================================================== */
+
+// 400, 700
+
+html
+    $font-secondary : 'Play', sans-serif
+    $fw-700         : 700
+
+    body,
+    .header__link::before
+        font-family: $font-secondary
+
+    .work__subtitle
+        font-weight: $fw-700
+
+
+
+/* ===================================================
+ Font Tertiary
+ ================================================== */
+
+// 400
+
+html
+    $font-tertiary: 'Goldman', cursive
+
+    .marquee--work .marquee__text-field
+        font-family: $font-tertiary

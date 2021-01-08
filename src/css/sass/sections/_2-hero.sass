@@ -1,0 +1,24 @@
+/* ===================================================
+ Base Styles
+ ================================================== */
+
+.hero
+    position: relative
+    overflow: hidden
+    height: 100vh
+
+    &__title
+         font-size: #{"min(max(0rem, 39vw), 19rem)"}
+         font-size: clamp(0rem, 39vw, 19rem)
+         text-transform: uppercase
+         line-height: 0.7
+         position: absolute
+         bottom: 1%
+         word-spacing: $infinity
+
+    &__curtain
+        height: $infinity
+        background-color: $color-primary
+        position: absolute
+        top: 100%
+        width: 100%

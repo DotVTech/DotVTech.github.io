@@ -1,0 +1,226 @@
+/**
+ *
+ * Documentation
+ *
+ * 1: Only use margin-top OR margin-left
+ * 2: Only use rems
+ *
+ */
+
+
+@import "font-faces"
+@import "fonts"
+
+
+/* =====================================
+ Variables
+ ==================================== */
+
+\:root
+    --section-padding: 3.75rem
+
+$color-primary               : #000
+$color-primary-light         : #767676
+$color-accent                : #ff007f
+$color-accent-medium         : #800040
+$color-accent-dark           : #400020
+$color-secondary             : #fff
+
+$cubic-bezier                : cubic-bezier(0.645, 0.045, 0.355, 1)
+$infinity                    : 500rem // high arbitrary value
+
+
+/* =====================================
+ Mixins
+ ==================================== */
+
+@mixin filter
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-image: linear-gradient(rgba($color-accent, 0.3))
+
+
+
+@mixin marquee($width, $animation-duration, $padding-right)
+    width: $width
+
+    .marquee__item
+        animation: marquee $animation-duration linear infinite
+
+    .marquee__text-field
+        padding-right: $padding-right
+
+
+
+@mixin margin-lr-auto
+    margin-left: auto
+    margin-right: auto
+
+
+
+@mixin letter-spacing($amount)
+    letter-spacing: $amount
+
+    /**
+     *
+     * Shifts element to original position after letter-spacing is applied
+     *
+     * @if     -letter-spacing  = +margin
+     * @else   letter-spacing   = -margin
+     *
+     */
+    @if $amount < 0
+        margin-right: $amount * -1
+    @else
+        margin-right: -$amount
+
+
+
+/* =====================================
+ Resets
+ ==================================== */
+
+html
+    box-sizing: border-box
+    scroll-behavior: smooth
+
+
+
+*,
+*::before,
+*::after
+    margin: 0
+    box-sizing: inherit
+    padding: 0
+
+
+
+body
+    background-color: $color-primary
+    color: $color-secondary
+
+
+
+a
+    text-decoration: none
+
+
+
+/* =====================================
+ Globals
+ ==================================== */
+
+.container
+    margin: 0 auto
+    max-width: 52rem
+    padding: 0 1.5rem
+
+
+
+.section
+    padding: var(--section-padding) 0
+
+
+
+.marquee
+    display: flex
+    overflow: hidden
+
+    &__text-field
+        white-space: nowrap
+
+    &--work
+        @include marquee(8rem, 3s, 1.5rem)
+
+        .marquee__text-field
+            font-size: 1rem
+
+    &--contact
+        @include marquee(100%, 17s, 6.25rem)
+
+        .marquee__item
+            opacity: 0.5
+
+        .marquee__text-field
+            font-size: 12.5rem
+            text-transform: uppercase
+
+            background-image: linear-gradient(145deg,$color-accent-dark,$color-accent-medium 32%,$color-accent 74%,$color-secondary)
+            -webkit-background-clip: text
+            -webkit-text-stroke: 0.25rem transparent
+            color: $color-primary
+
+
+
+.paragraph
+    max-width: 27rem
+    line-height: 1.6
+    font-size: 1.125rem
+
+
+
+/* =====================================
+ Animations
+ ==================================== */
+
+@keyframes marquee
+    0%
+        transform: translateX(0%)
+
+    100%
+        transform: translateX(-100%)
+
+
+
+/* =====================================
+ Section Imports
+ ==================================== */
+
+@import "sections/1-header"
+@import "sections/2-hero"
+@import "sections/3-about"
+@import "sections/4-work"
+@import "sections/5-contact"
+
+
+
+/* =====================================
+ Media Queries
+ ==================================== */
+
+@media screen and (min-width: 520px)
+    \:root
+        --section-padding: 6rem
+
+    .container
+        padding: 0 3rem
+
+    .work
+        &__container-text-group
+            margin-top: -7rem
+
+        &__preview
+            height: 22.5rem
+
+        &__title
+            font-size: 6rem
+
+
+
+@media screen and (min-width: 988px)
+    \:root        
+        --section-padding: 6.5rem
+
+    .contact
+        .marquee--contact
+            .marquee__text-field
+                font-size: 15em
+
+
+
+@media screen and (min-width: 980px)
+    .container
+        padding: 0

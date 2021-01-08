@@ -1,0 +1,122 @@
+/* ===================================================
+ Base Styles
+ ================================================== */
+
+// Margins
+.contact
+    &__title,
+    &__paragraph
+        margin-top: 0.75rem
+
+    &__links,
+    &__container-socials
+        margin-top: var(--section-padding)
+
+
+
+// Contact
+.contact
+    &__container-text-group
+        text-align: center
+
+    &__subtitle
+        color: $color-accent
+
+    &__title
+        font-size: #{"min(max(0rem, 15vw), 7rem)"}
+        font-size: clamp(0rem, 15vw, 7rem)
+        // animation: glowing-text 3s 0s infinite
+
+    &__paragraph
+        @include margin-lr-auto
+
+    &__links
+        position: relative
+
+    &__email
+        position: absolute
+        top: 25%
+        left: 50%
+        transform: translateX(-50%)
+        font-size: 1.375rem
+        color: $color-accent
+
+    &__email::before,
+    &__email::after
+        position: absolute
+        bottom: -15%
+        left: 0
+        right: 0
+        height: 0.0625rem
+        background-color: $color-accent
+        content: ""
+
+    &__email::before
+        opacity: 0.5
+
+    &__email::after
+        transition: transform .3s cubic-bezier(.35,.755,.42,.95)
+        transform-origin: right center
+        transform: scaleX(0)
+
+    &__email:hover::after
+        transform-origin: left center
+        transform: scaleX(1)
+
+    &__social
+        position: relative
+        font-size: 0.9rem
+        text-transform: uppercase
+        color: $color-accent
+
+    &__arrow
+        position: absolute
+        top: 50%
+        transform: translateY(-50%) rotate(-45deg)
+        width: 0.875rem
+        margin-left: 0.3rem
+        stroke: $color-accent
+        stroke-width: 0.125rem
+        fill: $color-accent
+
+
+
+/* ===================================================
+ Mobile Styles
+ ================================================== */
+
+@media screen and (max-width: 495px)
+    .contact
+        &__container-socials
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-row-gap: 1rem
+
+
+/* ===================================================
+ Desktop Styles
+ ================================================== */
+
+@media screen and (min-width: 496px)
+    .contact
+        &__container-socials
+            text-align: center
+
+        &__social:not(:first-child)
+            margin-left: 4rem
+
+
+
+// /* ===================================================
+//  Animations
+//  ================================================== */
+//
+// @keyframes glowing-text
+//     0%
+//         text-shadow: 0 0 1.25rem $color-secondary
+//
+//     50%
+//         text-shadow: 0 0 0 $color-secondary
+//
+//     100%
+//         text-shadow: 0 0 1.25rem $color-secondary

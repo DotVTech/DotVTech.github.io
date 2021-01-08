@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="Logo" src="https://raw.githubusercontent.com/DotVTech/dotvtech-portfolio/master/images/logo-dark.png" width="100" />
+    <img alt="Logo" src="https://raw.githubusercontent.com/DotVTech/dotvtech.github.io/master/images/logo-dark.png" width="100" />
 </div>
 
 <h1 align="center">VietDang.me</h1>
